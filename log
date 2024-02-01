@@ -1,0 +1,2 @@
+#testnet key: EVM_PRIVATE_KEY=0x79d3951b72d50587eef7de09948ee95a3a76ff2403b8f0b7e5b8272370eecfac npm run deploy
+#local key: 
