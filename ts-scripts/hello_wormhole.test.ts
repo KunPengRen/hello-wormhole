@@ -34,11 +34,6 @@ describe("Hello Wormhole Integration Tests on Testnet", () => {
         await tx.wait();
         await new Promise(resolve => setTimeout(resolve, 1000*5));
 
-        /*
-        console.log("Checking relay status");
-        const res = await getStatus(CHAIN_ID_TO_NAME[sourceChain], tx.hash);
-        console.log(`Status: ${res.status}`);
-        console.log(`Info: ${res.info}`); */
 
         console.log(`Reading greeting`);
         const readGreeting = await targetHelloWormholeContract.latestGreeting();
