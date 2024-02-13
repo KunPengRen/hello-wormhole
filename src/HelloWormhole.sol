@@ -28,14 +28,14 @@ contract HelloWormhole is IWormholeReceiver {
     }
 
     function sendCrossChainGreeting(
-        uint16 targetChain,
+        uint256 targetChain,
         address targetAddress,
         string memory greeting
     ) public payable {
-        uint256 cost = quoteCrossChainGreeting(targetChain);
+        uint256 cost = quoteCrossChainGreeting(uint16(targetChain));
         require(msg.value == cost);
         wormholeRelayer.sendPayloadToEvm{value: cost}(
-            targetChain,
+            uint16(targetChain),
             targetAddress,
             abi.encode(greeting, msg.sender), // payload
             0, // no receiver value needed since we're just passing a message
